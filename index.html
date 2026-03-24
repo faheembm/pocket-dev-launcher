@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pocket Dev Launcher</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <span> PocketOS</span>
+    <div id="time"></div>
+  </div>
+
+  <div class="desktop">
+    <h1>Dev Cockpit</h1>
+  </div>
+
+  <div class="dock">
+    <button onclick="openApp('https://github.com')">🐙</button>
+    <button onclick="openApp('https://supabase.com')">🟢</button>
+    <button onclick="openApp('https://chat.openai.com')">🤖</button>
+    <button onclick="openApp('https://developer.mozilla.org')">📘</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
