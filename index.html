@@ -1,29 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pocket Dev Launcher</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0d12" />
+    <title>PocketDev OS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="desktop" class="desktop">
+      <header class="menu-bar glass" role="banner">
+        <div class="menu-left">
+          <span class="logo" aria-hidden="true">◉</span>
+          <span class="os-title">PocketDev OS</span>
+        </div>
+        <div class="menu-center">Mobile Dev Desktop</div>
+        <div class="menu-right">
+          <span id="batteryStatus" class="status-chip" aria-live="polite">Battery --</span>
+          <time id="menuTime" class="clock" aria-live="polite"></time>
+        </div>
+      </header>
 
-  <div class="topbar">
-    <span> PocketOS</span>
-    <div id="time"></div>
-  </div>
+      <main class="desktop-surface" id="desktopSurface" aria-label="Desktop">
+        <section class="desktop-icons" aria-label="Desktop Apps">
+          <button class="desktop-icon" data-app="browser" type="button">
+            <span class="icon-badge icon-browser">🌐</span>
+            <span class="icon-label">Browser</span>
+          </button>
+          <button class="desktop-icon" data-app="notes" type="button">
+            <span class="icon-badge icon-notes">📝</span>
+            <span class="icon-label">Notes</span>
+          </button>
+          <button class="desktop-icon" data-app="devhub" type="button">
+            <span class="icon-badge icon-devhub">🧩</span>
+            <span class="icon-label">Dev Hub</span>
+          </button>
+          <button class="desktop-icon" data-app="terminal" type="button">
+            <span class="icon-badge icon-terminal">⌨️</span>
+            <span class="icon-label">Terminal</span>
+          </button>
+        </section>
 
-  <div class="desktop">
-    <h1>Dev Cockpit</h1>
-  </div>
+        <div id="windowLayer" class="window-layer" aria-live="polite"></div>
+      </main>
 
-  <div class="dock">
-    <button onclick="openApp('https://github.com')">🐙</button>
-    <button onclick="openApp('https://supabase.com')">🟢</button>
-    <button onclick="openApp('https://chat.openai.com')">🤖</button>
-    <button onclick="openApp('https://developer.mozilla.org')">📘</button>
-  </div>
+      <nav class="dock-wrap" aria-label="Dock">
+        <div id="dock" class="dock glass">
+          <button class="dock-item" data-app="browser" type="button" aria-label="Open Browser">
+            <span>🌐</span>
+            <small>Browser</small>
+          </button>
+          <button class="dock-item" data-app="notes" type="button" aria-label="Open Notes">
+            <span>📝</span>
+            <small>Notes</small>
+          </button>
+          <button class="dock-item" data-app="devhub" type="button" aria-label="Open Dev Hub">
+            <span>🧩</span>
+            <small>Dev Hub</small>
+          </button>
+          <button class="dock-item" data-app="terminal" type="button" aria-label="Open Terminal">
+            <span>⌨️</span>
+            <small>Terminal</small>
+          </button>
+        </div>
+      </nav>
+    </div>
 
-  <script src="script.js"></script>
-</body>
+    <template id="windowTemplate">
+      <article class="window" role="dialog" aria-modal="false">
+        <header class="window-titlebar">
+          <div class="window-controls">
+            <button class="win-btn close" data-action="close" type="button" aria-label="Close"></button>
+            <button class="win-btn minimize" data-action="minimize" type="button" aria-label="Minimize"></button>
+            <button class="win-btn focus" data-action="focus" type="button" aria-label="Focus"></button>
+          </div>
+          <h2 class="window-title"></h2>
+        </header>
+        <section class="window-body"></section>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
 </html>
